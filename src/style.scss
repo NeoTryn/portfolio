@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+}
+
+main {
+  width: 80vw;
+  color: white;
+  z-index: 1;
+  position: absolute;
+  margin: 0px auto;
+  margin-left: 20vw;
+  padding: 120px 0px;
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}

@@ -1,0 +1,9 @@
+$navBarWidth: 15vw;
+
+#bg {
+    position: fixed;
+    width: calc(100vw - $navBarWidth);
+    height:100vw;
+    top: 0;
+    left: $navBarWidth;
+  }
