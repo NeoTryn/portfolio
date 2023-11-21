@@ -1,4 +1,10 @@
-$transition_speed : 150ms;
+$transition_speed : 500ms;
+$transition_speed_fast: 250ms;
+$navbar_extended_width : 23vw;
+$lava : #808588;
+$steel : #777B7E;
+$anchor : 	#3E454B;
+$anchorDark : #1C2329;
 
 svg {
     width: 30px;
@@ -12,14 +18,15 @@ svg {
     width: 50px;
     height: 100vh;
     position: fixed;
-    background-color: green;
+    background-color: $anchor;
     transition: $transition_speed ease;
     z-index: 99;
+    box-shadow: 5px;
 }
 
 #navList {
     list-style-type: none;
-    width: 15vw;
+    width: 50px;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -28,42 +35,82 @@ svg {
 }
 
 .navElem {
-    font-size: 22px;
+    font-size: 20px;
     height: 2rem;
     overflow-y: visible;
     margin:0;
     padding-left: 10px;
     padding-top: 5px;
-    width: 50px;
+    width: calc(50px - padding-left);
     justify-content: center;
     align-content: center;
     transition: $transition_speed ease;
 }
 
 .navElem:hover {
-    background-color: blue;
-    width: 20vw;
+    background-color: $anchorDark;
+    width: calc($navbar_extended_width - 10px);
 
     /*svg {
         padding-top: 10px;
     }*/
 
-    .navLink {
-        color: green;
-        display: unset;
-    }
-}
-
-#navBar:hover{
-    width: 20vw;
     #navList {
-        width: 20vw;
+        width: $navbar_extended_width;
+    }
+
+    .navLink {
+        display: unset;
+        color: green;
     }
 }
 
-.navLink {
+#navList:has(.navElem:hover) {
+    #menuElem > #menuPara {
+        display: unset;
+        color: green;
+    }
+
+    #menuElem > #menuSVG {
+        transform: rotate(-90deg);
+        fill: lime;
+        filter: grayscale(50%)
+    }
+}
+
+#navBar:has(.navElem:hover) {
+    width: $navbar_extended_width;
+}
+
+.navElem > svg {
+    transition: $transition_speed_fast;
+}
+.navElem:hover > svg {
+    fill: lime;
+    filter: grayscale(50%);
+}
+
+.navLink, #menuPara {
     display: none;
-    padding-left: 30px;
-    padding-top: 10px;
+    padding-left: 37px;
+    padding-top: 3px;
     position: absolute;
+    width: calc($navbar_extended_width - padding-left);
+}
+
+#menuSVG {
+    transition: $transition_speed ease;
+    fill: black;
+}
+
+#menuElem:hover {
+    #menuSVG {
+        transform: rotate(-90deg);
+        fill: lime;
+        filter: grayscale(50%)
+    }
+}
+
+#menuPara {
+    margin-top: 0;
 }
