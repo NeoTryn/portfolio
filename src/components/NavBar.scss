@@ -27,6 +27,7 @@ svg {
 #navList {
     list-style-type: none;
     width: 50px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -37,7 +38,7 @@ svg {
 .navElem {
     font-size: 20px;
     height: 2rem;
-    overflow-y: visible;
+    overflow:hidden;
     margin:0;
     padding-left: 10px;
     padding-top: 5px;
@@ -113,4 +114,20 @@ svg {
 
 #menuPara {
     margin-top: 0;
+}
+
+#themeElem {
+    top:90vh;
+    margin-left: 8px;
+    &:hover {
+        #themeSVG {
+            fill: lime;
+            filter: grayscale(50%);
+        }
+    }
+}
+
+#themeSVG{
+    top: 90vh;
+    transition: $transition_speed_fast ease;
 }
